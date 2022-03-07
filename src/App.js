@@ -1,4 +1,4 @@
-import React, { useState, memo } from 'react';
+import React, { useState, memo, useCallback } from 'react';
 import FilterableProductTable from './components/FilterableProductTable'
 {/* <FilterableProductTable products={PRODUCTS} /> */}
 
@@ -19,7 +19,7 @@ const style = {
 }
 
 const ChildArea = memo((props) => {
-  const { isDisplay } = props
+  const { isDisplay, onClickCloseDisplay } = props
   const data = [...Array(2000).keys()]
   data.forEach(() => {
     console.log('ChildArea is rendering...')
@@ -28,7 +28,10 @@ const ChildArea = memo((props) => {
   return (
     <div>
       { isDisplay ? (
-      <p style={style}>child component</p>
+        <div style={style}>
+          <p>child component</p>
+          <button onClick={onClickCloseDisplay}>close</button>
+        </div>
       ) : null}
     </div>
   )
@@ -40,6 +43,7 @@ function App() {
 
   const [ isDisplay, setIsDispaly ] = useState(true)
   const onClickIsDisplay = () => setIsDispaly(!isDisplay)
+  const onClickCloseDisplay = useCallback(() => setIsDispaly(false), [setIsDispaly])
 
   return (
     <div>
@@ -49,7 +53,7 @@ function App() {
       </div>
       <div>
         <button onClick={onClickIsDisplay} >display</button>
-        <ChildArea isDisplay={isDisplay}/>
+        <ChildArea isDisplay={isDisplay} onClickCloseDisplay={onClickCloseDisplay} />
       </div>
     </div>
   );
