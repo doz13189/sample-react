@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, memo } from 'react';
 import FilterableProductTable from './components/FilterableProductTable'
 {/* <FilterableProductTable products={PRODUCTS} /> */}
 
@@ -18,7 +18,7 @@ const style = {
   backgroundColor: "khaki"
 }
 
-const ChildArea = (props) => {
+const ChildArea = memo((props) => {
   const { isDisplay } = props
   const data = [...Array(2000).keys()]
   data.forEach(() => {
@@ -32,7 +32,7 @@ const ChildArea = (props) => {
       ) : null}
     </div>
   )
-}
+})
 
 function App() {
   const [ text, setText ] = useState('')
