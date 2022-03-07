@@ -20,6 +20,10 @@ const style = {
 
 const ChildArea = (props) => {
   const { isDisplay } = props
+  const data = [...Array(2000).keys()]
+  data.forEach(() => {
+    console.log('ChildArea is rendering...')
+  })
 
   return (
     <div>
