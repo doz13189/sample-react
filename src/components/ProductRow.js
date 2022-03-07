@@ -3,11 +3,19 @@ import React from 'react';
 
 export default class ProductRow extends React.Component {
     render() {
-        return (
-            <tr>
-                <td>football</td>
-                <td>$50</td>
-            </tr>
-        );
+      const product = this.props.product;
+      const name = product.stocked ?
+        product.name :
+        <span style={{color: 'red'}}>
+          {product.name}
+        </span>;
+  
+      return (
+        <tr>
+          <td>{name}</td>
+          <td>{product.price}</td>
+        </tr>
+      );
     }
-}
+  }
+  
