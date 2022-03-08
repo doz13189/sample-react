@@ -7,6 +7,7 @@ import { SecondaryButton } from './6/components/atoms/button/SecondaryButton';
 import { SearchInput } from './6/components/molecules/SearchInput';
 import { UserCard } from './6/components/organisms/user/UserCard';
 import { HeaderOnly } from './6/components/templates/HederOnly';
+import { UserProvider } from './7/prividers/UserProvider';
 
 
 
@@ -26,12 +27,10 @@ function App() {
   return (
     <BrowserRouter>
       <SDiv>
-        <HeaderOnly>
-          <PrimaryButton>test</PrimaryButton>
-          <SecondaryButton>search</SecondaryButton>
-          <SearchInput />
-          <UserCard user={user} />
-        </HeaderOnly>
+          <UserProvider>
+            <SearchInput />
+            <UserCard user={user} />
+          </UserProvider>
       </SDiv>
     </BrowserRouter>
   );
