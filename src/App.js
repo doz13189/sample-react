@@ -3,14 +3,10 @@ import { BrowserRouter } from 'react-router-dom/cjs/react-router-dom.min';
 import styled from 'styled-components'
 import { RecoilRoot } from 'recoil'
 
-import { PrimaryButton } from './6/components/atoms/button/PrimaryButton';
-import { SecondaryButton } from './6/components/atoms/button/SecondaryButton';
 import { SearchInput } from './6/components/molecules/SearchInput';
 import { UserCard } from './6/components/organisms/user/UserCard';
-import { HeaderOnly } from './6/components/templates/HederOnly';
 import { UserProvider } from './7/prividers/UserProvider';
-
-
+import { Practice1 } from './8/practices/Practice1.tsx';
 
 const user = {
   name: 'light',
@@ -28,6 +24,8 @@ function App() {
   return (
     <BrowserRouter>
       <SDiv>
+        <Practice1/>
+
         <RecoilRoot>
           <UserProvider>
             <SearchInput />
