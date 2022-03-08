@@ -5,7 +5,6 @@ import { Input } from "../atoms/input/input"
 
 export const SearchInput = () => {
 
-
     return (
         <div>
             <Scontainer>

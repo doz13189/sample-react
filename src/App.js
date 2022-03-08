@@ -1,6 +1,7 @@
 import React from 'react'
 import { BrowserRouter } from 'react-router-dom/cjs/react-router-dom.min';
 import styled from 'styled-components'
+import { RecoilRoot } from 'recoil'
 
 import { PrimaryButton } from './6/components/atoms/button/PrimaryButton';
 import { SecondaryButton } from './6/components/atoms/button/SecondaryButton';
@@ -27,10 +28,12 @@ function App() {
   return (
     <BrowserRouter>
       <SDiv>
+        <RecoilRoot>
           <UserProvider>
             <SearchInput />
             <UserCard user={user} />
           </UserProvider>
+        </RecoilRoot>
       </SDiv>
     </BrowserRouter>
   );
