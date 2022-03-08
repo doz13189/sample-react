@@ -14,7 +14,9 @@ export const PrimaryButton = (props) => {
     const [ userInfo, setUserInfo ] = useRecoilState(userState)
     console.log(userInfo)
 
-    const eventOnClick = () => { setUserInfo({ isAdmin: true }) }
+    const eventOnClick = () => {
+        setUserInfo({ isAdmin: true })
+    }
 
     return (
         <SButton onClick={eventOnClick}>{ children }</SButton>
